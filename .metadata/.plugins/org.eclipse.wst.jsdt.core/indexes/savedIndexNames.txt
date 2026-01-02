@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\psych\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4134016913.index
+3551290471.index
+2462120458.index
+962122835.index
+2920882857.index
+117987349.index
+1117043059.index

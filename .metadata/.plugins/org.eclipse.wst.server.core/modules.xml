@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:SessionDemo" serverId="Tomcat v11.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:ServeletMethod" serverId="Tomcat v11.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:CookieDemo" serverId="Tomcat v11.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:Prince" serverId="Tomcat v11.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:JDBC_DB" serverId="Tomcat v11.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:Experiment-3" serverId="Tomcat v11.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:Experiment-1" serverId="Tomcat v11.0 Server at localhost"/>
+</modules>

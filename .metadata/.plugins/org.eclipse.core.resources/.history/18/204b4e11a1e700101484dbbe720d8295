@@ -1,0 +1,61 @@
+package JDBC;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+@WebServlet("/EditSelect")
+public class EditSelect extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public EditSelect() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter pw = response.getWriter();
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		
+		try {
+			//load driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			//establish connection
+			Connection con = DriverManager.getConnection
+					("jdbc:mysql://localhost:3306/employee","root","");
+			PreparedStatement ps = con.prepareStatement("select * from empData where empId=?");
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			pw.println("<form action='EditSelect?id="+id+"'method='post'>");
+			pw.println("<table>");
+			pw.println("<tr>");
+			pw.println("<td> <input type='text' name='username' value='"+rs.getString(1)+"'></td>");
+			pw.println("</tr>");
+			pw.println("<tr>");
+			pw.println("<td> <input type='text' name='mobile' value='"+rs.getString(2)+"'></td>");
+			pw.println("</tr>");
+			pw.println("</table>");
+			
+		}
+		catch(SQLException e) {
+			e.getStackTrace();
+		}
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		pw.println("<button type='submit' name='Home'><a href='index.jsp'>Home</a></button>");
+		pw.println("<button type='submit' name='ShowUser'><a href='Select'>Users</a></button>");
+	}
+
+}
