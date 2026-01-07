@@ -33,9 +33,12 @@ public class Insert extends HttpServlet {
 			
 			//establish connection
 			Connection con = DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/employee","root","");
+					("jdbc:mysql://localhost:3306/employee","root","12345");
 			
-			PreparedStatement ps = con.prepareStatement("insert into empData(empName, mobile) values(?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into empData(name, mobile) values(?,?)");
+			
+			
+			
 			ps.setString(1, name);
 			ps.setString(2, mobile);
 			int count = ps.executeUpdate();

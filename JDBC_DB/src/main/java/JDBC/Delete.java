@@ -18,7 +18,7 @@ import java.sql.SQLException;
 @WebServlet("/Delete")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String query= "delete from empData where empid=?";
+	private static final String query= "delete from empData where id=?";
     public Delete() {
         super();
         // TODO Auto-generated constructor stub
@@ -38,7 +38,7 @@ public class Delete extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			//establish connection
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","12345");
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setInt(1, id);
 			int count = ps.executeUpdate();

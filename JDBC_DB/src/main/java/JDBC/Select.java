@@ -25,14 +25,30 @@ public class Select extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
+		pw.println("<form method='get' action='Select'>");
+		pw.println("<input type='text' name='search' placeholder='Search by ID or Name'>");
+		pw.println("<input type='submit' value='Search'>");
+		pw.println("</form><br>");
+		String search = request.getParameter("search");
 		try {
 			//load driver
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			//establish connection
 			Connection con = DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/employee","root","");
+					("jdbc:mysql://localhost:3306/employee","root","12345");
 			PreparedStatement ps = con.prepareStatement("select * from empData");
+			
+			
+			if(search != null && !search.trim().isEmpty()) {
+				ps.getConnection().prepareStatement("SELECT * FROM empData WHERE id=? OR name LIKE ?");
+				
+				ps.setString(1, search);
+				ps.setString(2, "%"+ search+ "%");
+			}
+			else {
+				ps = con.prepareStatement("SELECT * FROM empData");
+			}
 			
 			pw.println("<table>");
 			pw.println("<thead>");
@@ -53,7 +69,7 @@ public class Select extends HttpServlet {
 				pw.println("<td>"+rs.getString(3)+"</td>");
 				
 				pw.println("<td><button type='submit' name='Delete'><a href='Delete?id="+rs.getInt(1)+"'>Delete</a></button></td>");
-				pw.println("<td><button type='submit' name='Edit'><a href='Edit?id="+rs.getInt(1)+"'>Edit</a></button></td>");
+				pw.println("<td><button type='submit' name='Edit'><a href='EditSelect?id="+rs.getInt(1)+"'>Edit</a></button></td>");
 				pw.println("</tbody>");
 				}
 			

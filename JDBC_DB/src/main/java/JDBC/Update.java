@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @WebServlet("/Update")
 public class Update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String query= "UPDATE empData SET empname=?, mobileno=? where empid=?";
+	private static final String query= "UPDATE empData SET name=?, mobile=? where id=?";
 		
 		
     public Update() {
@@ -30,8 +30,8 @@ public class Update extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
-		String uname = request.getParameter("username");
-		String mno = request.getParameter("mobileno");
+		String uname = request.getParameter("name");
+		String mno = request.getParameter("mobile");
 		int id = Integer.parseInt(request.getParameter("id"));
 		try {
 			//load driver
@@ -39,12 +39,20 @@ public class Update extends HttpServlet {
 			
 			//establish connection
 			Connection con = DriverManager.getConnection
-					("jdbc:mysql://localhost:3306/employee","root","");
+					("jdbc:mysql://localhost:3306/employee","root","12345");
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, uname);
 			ps.setString(2, mno);
 			ps.setInt(3, id);
 			int count = ps.executeUpdate();
+			con.close();
+			
+			if (count > 0) {
+                response.sendRedirect("Select");
+                pw.println("<h1>Updated</h1>");
+            } else {
+                response.getWriter().println("<h1>Update Failed</h1>");
+            }
 			
 		}
 		catch(SQLException e) {

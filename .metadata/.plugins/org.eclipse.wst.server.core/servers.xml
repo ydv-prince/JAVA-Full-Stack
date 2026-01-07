@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<servers>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v11.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v11.0 Server at localhost" name="Tomcat v11.0 Server at localhost" runtime-id="Apache Tomcat v11.0" server-type="org.eclipse.jst.server.tomcat.110" server-type-id="org.eclipse.jst.server.tomcat.110" start-timeout="60" stop-timeout="15" testEnvironment="true" timestamp="13">
-    <list key="modules" value0="Prince::org.eclipse.jst.jee.server:Prince::jst.web::6.1" value1="ServeletMethod::org.eclipse.jst.jee.server:ServeletMethod::jst.web::6.1" value2="SessionDemo::org.eclipse.jst.jee.server:SessionDemo::jst.web::6.1" value3="Experiment-1::org.eclipse.jst.jee.server:Experiment-1::jst.web::6.1" value4="CookieDemo::org.eclipse.jst.jee.server:CookieDemo::jst.web::6.1" value5="JDBC_DB::org.eclipse.jst.jee.server:JDBC_DB::jst.web::6.1" value6="Experiment-3::org.eclipse.jst.jee.server:Experiment-3::jst.web::6.1"/>
-  </server>
-</servers>
