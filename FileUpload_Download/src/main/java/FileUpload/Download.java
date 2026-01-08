@@ -78,8 +78,7 @@ public class Download extends HttpServlet {
 
                 	// DELETE
                 	pw.println("<td>");
-                	pw.println("<a href='Delete?id=" + rs.getInt("id") + "' "
-                	        + "onclick=\"return confirm('Are you sure?')\">");
+                	pw.println("<a href='Delete?id=" + rs.getInt("id") + "'>");
                 	pw.println("<button style='color:red'>Delete</button>");
                 	pw.println("</a>");
                 	pw.println("</td>");
