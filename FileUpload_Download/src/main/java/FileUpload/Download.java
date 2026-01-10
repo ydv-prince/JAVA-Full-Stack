@@ -1,12 +1,19 @@
 package FileUpload;
 
+<<<<<<< HEAD
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletOutputStream;
+=======
+import java.io.IOException;
+
+import jakarta.servlet.ServletException;
+>>>>>>> d8a2e98 (User Registration using MYSQL database)
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -135,4 +142,36 @@ public class Download extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
+=======
+/**
+ * Servlet implementation class Download
+ */
+@WebServlet("/Download")
+public class Download extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * Default constructor. 
+     */
+    public Download() {
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+>>>>>>> d8a2e98 (User Registration using MYSQL database)
 }
