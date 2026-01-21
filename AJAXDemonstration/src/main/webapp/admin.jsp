@@ -1,32 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Admin Page</title>
-<script>
-function loadUsers() {
-    // ✅ Corrected XMLHttpRequest spelling
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "ActivateUserServlet", true);
-    xhr.onreadystatechange = function() {
-        // ✅ Corrected readyState capitalization
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            document.getElementById("users").innerHTML = xhr.responseText;
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <script>
+        function loadUsers() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "ActivateUserServlet", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("users").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
         }
-    };
-    xhr.send();
-}
-// ✅ Will call loadUsers every 10 seconds
-setInterval(loadUsers, 1000 * 10);
-</script>
+        setInterval(loadUsers, 2000);
+    </script>
 </head>
 <body onload="loadUsers()">
-<h2>Admin Panel</h2>
-<h3>Currently active users</h3>
-<ul id="users">
-    ${user}
-</ul>
+    <h2>Admin Dashboard</h2>
+    <h3>Currently Logged-in Users</h3>
+    <ul id="users"></ul>
 </body>
 </html>
