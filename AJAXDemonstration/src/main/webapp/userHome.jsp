@@ -7,9 +7,8 @@
 <title>Welcome Page</title>
 </head>
 <body>
-
-<h4>Welcome user</h4>
-<p>Welcome, ${sessionScope.user}</p>
+<h4>Welcome User </h4>
+<p>Welcome,${sessionScope.user}</p>
 <a href="LogoutServlet">Logout</a>
 </body>
 </html>
