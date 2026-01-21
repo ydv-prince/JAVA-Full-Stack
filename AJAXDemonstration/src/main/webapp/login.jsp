@@ -7,14 +7,12 @@
 <title>Login Page</title>
 </head>
 <body>
-<form method="post" action="LoginServlet">
+<h2> Login page</h2>
 
-<label for="user">Enter Username :</label>
-<input type="text" id="user" name="username"><br><br>
-<label for="psw">Enter Password :</label>
-<input type="text" id="psw" name="password"><br><br>
-<button type="submit">Login</button>
-
+<form action="LoginServlet" method="post">
+Enter name: <input type="text" name="uname">
+Enter password : <input type="password" name="pwd">
+<input type="submit" value="login">
 </form>
 
 </body>
