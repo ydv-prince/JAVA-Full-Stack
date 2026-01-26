@@ -35,10 +35,9 @@ public class LogoutServlet extends HttpServlet {
                 Set<String> users = (Set<String>) context.getAttribute("loggedUser");
                 if (users != null && user != null) {
                     users.remove(user);
-                } // inner if
-            } // synchronized
-        } // outer if
-
+                }
+            }
+        }
         response.sendRedirect("login.jsp");
     }
 }
