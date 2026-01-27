@@ -13,6 +13,7 @@ bin/
 build/
 target/
 *.class
+*.classpath
 
 # ========================
 # Servers / Tomcat
