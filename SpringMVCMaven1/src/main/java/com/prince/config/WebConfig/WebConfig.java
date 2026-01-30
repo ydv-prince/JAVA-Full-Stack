@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages="com.rahul.config")
+@ComponentScan(basePackages="com.prince")
 
 public class WebConfig {
 	@Bean //object
