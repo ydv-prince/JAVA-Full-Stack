@@ -1,13 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>My JSP Page</title>
+<meta charset="UTF-8">
+<title>Home Page</title>
 </head>
 <body>
-    <h1>Welcome to JSP!</h1>
-    <p>This is a simple JSP template.</p>
+<h1>Home Page</h1>
+<h2>Spring MVC is Working</h2>
+<h3>${msg}</h3>
 </body>
 </html>
