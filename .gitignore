@@ -5,8 +5,8 @@
 .settings/
 .recommenders/
 *.log
-src/main/webapp/META-INF/
-src/main/webapp/WEB-INF/
+**/src/main/webapp/META-INF/
+**/src/main/webapp/WEB-INF/
 
 # ========================
 # Java build outputs
