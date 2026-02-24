@@ -1,29 +1,47 @@
 package com.prince.controller;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.prince.dao.UserDao;
 import com.prince.model.User;
-import org.springframework.stereotype.Controller;
 
 @Controller
 public class UserController {
 	private final UserDao dao;
 	public UserController(UserDao dao) {
-		this.dao = dao;
+		this.dao=dao;
 	}
-@GetMapping("/")
+@GetMapping("/") //home.jsp
 public String home(Model m) {
-	m.addAttribute("list", dao.getAll());
+	m.addAttribute("list",dao.getAll());
 	return "home";
 }
-
 @PostMapping("/save")
 public String save(@ModelAttribute User u) {
 	dao.save(u);
-	return "redirect:/";
+	return "redirect:/"; // home.jsp
+}
+//delete
+@GetMapping ("/delete/{id}")
+	public String delete(@PathVariable("id") int id) {
+		dao.delete(id);
+		return"redirect:/";
+	}
+@GetMapping ("/edit/{id}")
+public String edit(@PathVariable("id") int id,Model m){
+	m.addAttribute("user",dao.getById(id));
+	return "edit";
+}
+@PostMapping("/update")
+public String update(@ModelAttribute User u) {
+	dao.update(u);
+	return"redirect:/";
 }
 }
+
