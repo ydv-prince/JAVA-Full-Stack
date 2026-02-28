@@ -5,6 +5,7 @@
 .settings/
 .recommenders/
 *.log
+*/LICENSE
 **/src/main/webapp/META-INF/
 
 # ========================
