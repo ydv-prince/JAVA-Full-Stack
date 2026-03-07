@@ -1,0 +1,127 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Add Course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sidebar {
+            height: 100vh;
+            background-color: #111827;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px 10px;
+        }
+        .sidebar a:hover {
+            background-color: #1f2937;
+        }
+        .btn-custom {
+            border-radius: 50px;
+            padding: 8px 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar">
+            <h4 class="text-center text-white">Admin Panel</h4>
+            <hr class="text-white">
+            <a href="admin">🏠 Dashboard</a>
+            <a href="admin-manage-students">👨‍🎓 Manage Students</a>
+            <a href="admin-manage-teachers">👨‍🏫 Manage Teachers</a>
+            <a href="admin-manage-courses" class="bg-primary">📚 Manage Courses</a>
+            <a href="admin-manage-assignments">📝 Manage Assignments</a>
+            <a href="admin-manage-quizzes">🧠 Manage Quizzes</a>
+            <a href="admin-manage-payments">💰 Payments</a>
+            <a href="admin-reports">📊 Reports</a>
+            <a href="admin-settings">⚙ Settings</a> <a href="login">🚪 Logout</a>
+			</div>
+
+        <!-- Main Content -->
+        <div class="col-md-10 p-4">
+
+            <!-- Top Navbar -->
+            <nav class="navbar navbar-light bg-white shadow-sm mb-4">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h5">➕ Add New Course</span>
+                </div>
+            </nav>
+
+            <!-- Add Course Form -->
+            <div class="card shadow p-4">
+                <form action="save-course" method="post">
+
+                    <div class="mb-3">
+                        <label class="form-label">Course Name</label>
+                        <input type="text" name="name" class="form-control"
+                               placeholder="Enter course name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select name="category" class="form-select" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Framework">Framework</option>
+                            <option value="Database">Database</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Duration</label>
+                        <input type="text" name="duration" class="form-control"
+                               placeholder="e.g., 3 Months / 12 Weeks" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fees</label>
+                        <input type="number" name="fees" class="form-control"
+                               placeholder="Enter course fees" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="4"
+                                  placeholder="Enter course description"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-select" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-custom w-100">
+                        Save Course
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

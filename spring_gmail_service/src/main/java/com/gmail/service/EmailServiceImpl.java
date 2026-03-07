@@ -21,9 +21,9 @@ public class EmailServiceImpl implements EmailService {
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(to);
-        message.setSubject("Welcome to the Gemini Verse");
-        message.setText("Hello " + name + ",\n\nWelcome to Gemini Verse!");
-        message.setFrom("1234happycookies@gmail.com");
+        message.setSubject("Welcome");
+        message.setText("Hello " + name + ",\n\nWelcome");
+        message.setFrom("USER_MAIL");
 
         mailSender.send(message);
         System.out.println("Simple email sent successfully");
@@ -32,7 +32,6 @@ public class EmailServiceImpl implements EmailService {
     @Override
     public void sendEmailWithAttachment(String to, String name, MultipartFile file) {
 
-    	for(int i=0; i<10; i++) {
     		if (file == null || file.isEmpty()) {
                 throw new RuntimeException("Attachment file is empty or missing");
             }
@@ -46,7 +45,7 @@ public class EmailServiceImpl implements EmailService {
                 helper.setTo(to);
                 helper.setSubject("Hello " + name);
                 helper.setText("Please find the attached document.");
-                helper.setFrom("1234happycookies@gmail.com");
+                helper.setFrom("USER_MAIL");
 
                 helper.addAttachment(
                         file.getOriginalFilename(),
@@ -62,5 +61,4 @@ public class EmailServiceImpl implements EmailService {
             }
     	}
     	
-    }
 }
